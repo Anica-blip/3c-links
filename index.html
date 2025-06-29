@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>3C Clubhouse Links</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+  <div class="mode-toggle">
+    <button id="toggleMode" aria-label="Toggle dark/light mode">🌙</button>
+  </div>
+  <div class="container">
+    <!-- Banner/Announcement -->
+    <div class="banner">
+      <img src="banner.png" alt="Banner" class="banner-img">
+      <div class="announcement">
+        <p><strong>Announcement:</strong> New Telegram bot launching soon! Stay tuned. 🚀</p>
+      </div>
+    </div>
+    <!-- Logo -->
+    <img src="logo.png" alt="3C Clubhouse Logo" class="logo">
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="https://t.me/your_telegram" target="_blank" title="Telegram"><img src="icon-telegram.png" alt="Telegram"></a>
+      <a href="https://instagram.com/your_account" target="_blank" title="Instagram"><img src="icon-instagram.png" alt="Instagram"></a>
+      <a href="https://twitter.com/your_account" target="_blank" title="Twitter/X"><img src="icon-twitter.png" alt="Twitter"></a>
+      <a href="https://youtube.com/@your_channel" target="_blank" title="YouTube"><img src="icon-youtube.png" alt="YouTube"></a>
+      <!-- Add more icons as needed -->
+    </div>
+    <!-- Short Bio/About -->
+    <div class="bio">
+      <h1>Welcome to 3C Clubhouse</h1>
+      <p>We connect, create, and collaborate! <br>
+      Join our community to access exclusive content, training, and tools. <br>
+      Powered by AI, driven by creativity.</p>
+    </div>
+    <!-- Video/GIF Embed -->
+    <div class="video-section">
+      <iframe width="100%" height="220" src="https://www.youtube.com/embed/your_video_id" title="Intro Video" frameborder="0" allowfullscreen></iframe>
+      <!-- OR: <img src="your_gif.gif" alt="Welcome GIF"> -->
+    </div>
+    <!-- Link Groups/Categories -->
+    <div class="links-group">
+      <h2>Social & Community</h2>
+      <div class="links">
+        <a href="https://t.me/your_telegram" class="link-btn" target="_blank" data-link="telegram">Join our Telegram</a>
+        <a href="https://notion.so/your_hub" class="link-btn" target="_blank" data-link="notion">Training Hub (Notion)</a>
+      </div>
+      <h2>Media & Content</h2>
+      <div class="links">
+        <a href="https://instagram.com/your_account" class="link-btn" target="_blank" data-link="instagram">Instagram</a>
+        <a href="https://youtube.com/@your_channel" class="link-btn" target="_blank" data-link="youtube">YouTube</a>
+      </div>
+      <!-- Add more groups and links as needed -->
+    </div>
+    <!-- Newsletter Signup -->
+    <div class="newsletter">
+      <h3>Subscribe for Updates</h3>
+      <form id="newsletterForm" action="mailto:your@email.com" method="POST" enctype="text/plain">
+        <input type="email" name="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <!-- Contact Button/Email -->
+    <div class="contact">
+      <a href="mailto:your@email.com" class="contact-btn">Contact Us</a>
+    </div>
+    <!-- QR Code -->
+    <div class="qr-section">
+      <h4>Scan to open this page:</h4>
+      <canvas id="qrCode"></canvas>
+    </div>
+    <footer>
+      <p>© 2025 3C Clubhouse | Built by Anica | <a href="#" id="viewStats">View Stats</a></p>
+    </footer>
+    <!-- Link Analytics Modal -->
+    <div id="statsModal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <h2>Link Click Stats (This Browser)</h2>
+        <ul id="statsList"></ul>
+        <p>For full analytics, connect to Google Analytics or Plausible.</p>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
