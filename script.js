@@ -30,7 +30,7 @@ window.onload = () => {
 const links = document.querySelectorAll('.link-btn');
 links.forEach(link => {
   link.addEventListener('click', function() {
-    let key = 'linkstat_' + link.dataset.link;
+    let key = 'linkstat_' + link.textContent.replace(/\s+/g,'').toLowerCase();
     let count = Number(localStorage.getItem(key) || 0) + 1;
     localStorage.setItem(key, count);
   });
@@ -41,7 +41,7 @@ function showStatsModal() {
   let statsList = document.getElementById('statsList');
   statsList.innerHTML = '';
   links.forEach(link => {
-    let key = 'linkstat_' + link.dataset.link;
+    let key = 'linkstat_' + link.textContent.replace(/\s+/g,'').toLowerCase();
     let count = Number(localStorage.getItem(key) || 0);
     let text = `${link.textContent}: ${count} clicks`;
     let li = document.createElement('li');
