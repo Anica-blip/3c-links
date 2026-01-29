@@ -239,24 +239,6 @@ footer a {
   text-decoration: underline;
 }
 
-.mode-toggle {
-  position: absolute;
-  top: 12px;
-  right: 18px;
-  z-index: 100;
-}
-#toggleMode {
-  background: var(--blue-accent);
-  border: none;
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  font-size: 1.25rem;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
 .modal {
   display: none;
   position: fixed;
