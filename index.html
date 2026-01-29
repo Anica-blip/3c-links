@@ -3,13 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Title</title>
+    <title>My Website</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to Your Page!</h1>
-    <!-- Removed the mode-toggle button div -->
-    <div>
-        <p>Your content goes here.</p>
-    </div>
+    <header>
+        <div class="banner">
+            <img src="logo.png" alt="Logo">
+            <h1>Main Title</h1>
+            <h2>Subtitle</h2>
+        </div>
+    </header>
+    <main>
+        <section class="video">
+            <iframe src="video.mp4" frameborder="0" allowfullscreen></iframe>
+        </section>
+        <section class="links">
+            <a href="https://example.com" target="_blank">Link 1</a>
+            <a href="https://example.com" target="_blank">Link 2</a>
+            <a href="https://example.com" target="_blank">Link 3</a>
+        </section>
+        <section class="newsletter">
+            <form action="subscribe" method="post">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+        <button class="contact">Contact Us</button>
+        <div class="qr-code">
+            <img src="qr-code.png" alt="QR Code">
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 My Website</p>
+    </footer>
 </body>
 </html>
