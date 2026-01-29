@@ -1,7 +1,19 @@
-.mode-toggle {
-    display: none;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-#toggleMode {
-    display: none;
+h1 {
+  font-size: 2rem;
+  color: #333;
 }
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+/* Removed .mode-toggle and #toggleMode CSS rules */
