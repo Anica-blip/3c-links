@@ -1,5 +1,13 @@
 # 3C Clubhouse Links
 
+This project is part of the 3C Thread To Success™ ecosystem — a growing digital platform that combines creativity, structure, and real-world application.
+
+The 3C Thread To Success™ brand, including its name, structure, characters (Aurion 3C Mascot), and overall system design, remains the intellectual property of the creator and is not included in this license.
+
+Commercial use of the brand or replication of the ecosystem identity is not permitted without permission.
+
+---
+
 A customizable, brandable “Linktree-style” landing page for 3C Clubhouse — share all your important links, announcements, videos, and more, with analytics, dark mode, and full control.
 
 ## Features
@@ -26,6 +34,28 @@ A customizable, brandable “Linktree-style” landing page for 3C Clubhouse —
    - On GitHub, go to Settings > Pages > Source: select `main` branch, `/root` folder.
    - Your live page will be at `https://yourusername.github.io/3c-links/`
 5. **Share or embed** the link as needed!
+
+---
+
+## 🎨 Credits
+
+*Designed and Built by GitHub Copilot × Chef Anica · 3C Thread To Success™ Cooking Lab*
+
+---
+
+## 👤 Creator
+
+Anica-blip (“Chef”)
+Founder of 3C Thread To Success™ ("Cooking Lab")
+Independent Creator | Community Builder
+
+---
+
+🧠 Philosophy
+
+“Think it. Do it. Own it.”
+
+This project was built from vision, persistence, and a commitment to creating meaningful and structured experiences — even with minimal resources.
 
 ## License
 
