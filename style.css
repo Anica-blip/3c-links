@@ -244,20 +244,83 @@ body {
   filter: brightness(0.60);
 }
 
-/* Iframe wrapper, hidden until play is pressed */
-.video-frame-wrapper {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border-radius: 11px;
-  overflow: hidden;
-  display: none; /* toggled by JS */
-}
-.video-frame-wrapper iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
+/* Iframe wrapper (kept for reference, not used) */
+.video-frame-wrapper { display: none; }
+
+/* ── Custom in-video player controls ── */
+#mainVideo {
   display: block;
-  border-radius: 11px;
+  background: #0a0515;
+}
+
+.player-controls {
+  display: none; /* toggled by JS */
+  flex-direction: column;
+  gap: 5px;
+  background: rgba(18, 10, 42, 0.76);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(97, 216, 230, 0.10);
+  border-radius: 0 0 11px 11px;
+  padding: 7px 10px 8px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  transition: height 0.15s;
+}
+.progress-track:hover {
+  height: 6px;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--blue-accent);
+  border-radius: 2px;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ctrl-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.80);
+  font-size: 0.82rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.ctrl-btn:hover {
+  background: rgba(97, 216, 230, 0.18);
+  color: #fff;
+}
+
+.time-display {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 0.70rem;
+  color: rgba(255, 255, 255, 0.50);
+  flex: 1;
+  text-align: center;
+  letter-spacing: 0.03em;
+  user-select: none;
+}
+
+.mute-btn {
+  margin-left: auto;
 }
 
 /* ── Play / Stop pill button (below container) ── */
