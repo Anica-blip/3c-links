@@ -58,7 +58,7 @@ body {
 .banner-img {
   width: 100%;
   max-width: 420px;
-  border-radius: 12px;
+  border-radius: 8px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -70,9 +70,8 @@ body {
   width: 100px;
   margin-bottom: 8px;
   border-radius: 22%;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.40), 0 1px 6px rgba(0, 0, 0, 0.25);
   background: #fff;
-  border: 3px solid var(--logo-blue);
   display: block;
   margin-left: auto;
   margin-right: auto;
