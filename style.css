@@ -5,16 +5,22 @@
   --cream-bg: #ddd5c9;
   --indigo: #3c3678;
   --logo-blue: #50688f;
-  --btn-bg: #50688f;
-  --btn-hover: #61d8e6;
-  --btn-hover-text: #523474;
-  --contact-btn-bg: #3c3678;
-  --contact-btn-hover: #523474;
+
+  /* Glass button palette */
+  --btn-bg: rgba(80, 104, 143, 0.28);
+  --btn-border: rgba(97, 216, 230, 0.22);
+  --btn-hover-bg: rgba(97, 216, 230, 0.22);
+  --btn-hover-text: #ffffff;
+
+  /* Contact button */
+  --contact-btn-bg: rgba(60, 54, 120, 0.50);
+  --contact-btn-hover: rgba(82, 52, 116, 0.65);
+
   --subtitle: #a49079;
   --title: #61d8e6;
 }
 
-/* Ensure email and all buttons are white font */
+/* ── Base white text for interactive elements ── */
 .email-under-logo a,
 .guidebook-link,
 .link-btn,
@@ -23,6 +29,7 @@
   color: #fff !important;
 }
 
+/* ── Body & Background ── */
 body {
   font-family: 'Inter', Arial, sans-serif;
   background: var(--purple-dark) url("Backgroud - GitHub Links.png") no-repeat center center fixed;
@@ -32,6 +39,7 @@ body {
   transition: background 0.3s;
 }
 
+/* ── Container ── */
 .container {
   max-width: 460px;
   margin: 32px auto;
@@ -43,6 +51,7 @@ body {
   transition: background 0.3s;
 }
 
+/* ── Banner ── */
 .banner {
   margin-bottom: 16px;
 }
@@ -55,11 +64,13 @@ body {
   margin-right: auto;
   background: #fff;
 }
+
+/* ── Logo ── */
 .logo {
   width: 100px;
   margin-bottom: 8px;
   border-radius: 22%;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.10);
   background: #fff;
   border: 3px solid var(--logo-blue);
   display: block;
@@ -67,10 +78,12 @@ body {
   margin-right: auto;
 }
 
+/* ── Email under logo ── */
 .email-under-logo {
   margin-bottom: 10px;
 }
 
+/* ── Main title ── */
 .main-title {
   font-family: 'Arimo', Arial, sans-serif;
   font-size: 16pt;
@@ -81,7 +94,9 @@ body {
   text-align: center;
 }
 
-.subtitle, .subtitle2 {
+/* ── Subtitles ── */
+.subtitle,
+.subtitle2 {
   font-family: 'Inter', Arial, sans-serif;
   font-size: 14pt;
   font-weight: bold;
@@ -92,6 +107,7 @@ body {
   margin: 15px 0 8px 0;
 }
 
+/* ── Guidebook ── */
 .guidebook-section {
   margin-bottom: 16px;
 }
@@ -100,20 +116,28 @@ body {
   font-size: 12pt;
   font-weight: 600;
   background: var(--btn-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--btn-border);
   padding: 9px 32px;
   border-radius: 9px;
   text-decoration: none;
   display: inline-block;
   margin-top: 7px;
   margin-bottom: 7px;
-  transition: background 0.15s, color 0.15s;
-  box-shadow: 0 2px 8px rgba(146,168,209,0.11);
+  transition: background 0.18s, border-color 0.18s, transform 0.14s, box-shadow 0.18s;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.08);
 }
-.guidebook-link:hover, .guidebook-link:focus {
-  background: var(--btn-hover);
-  color: var(--btn-hover-text) !important;
+.guidebook-link:hover,
+.guidebook-link:focus {
+  background: var(--btn-hover-bg);
+  border-color: rgba(97, 216, 230, 0.50);
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(97, 216, 230, 0.16), inset 0 1px 0 rgba(255,255,255,0.10);
 }
 
+/* ── Section titles ── */
 .section-title {
   font-family: 'Inter', Arial, sans-serif;
   font-size: 14pt;
@@ -124,6 +148,7 @@ body {
   text-align: left;
 }
 
+/* ── Link button grid ── */
 .links {
   display: flex;
   flex-direction: column;
@@ -142,31 +167,186 @@ body {
   margin-bottom: 0;
 }
 
+/* ── Link buttons – Glassmorphism ── */
 .link-btn {
   font-family: 'Inter', Arial, sans-serif;
   font-size: 12pt;
-  background: var(--btn-bg);
   font-weight: 600;
+  background: var(--btn-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--btn-border);
   text-decoration: none;
   padding: 11px 0;
   border-radius: 13px;
-  border: none;
   display: inline-block;
-  transition: background 0.14s, color 0.14s, transform 0.13s;
-  box-shadow: 0 2px 8px rgba(80,104,143,0.11);
+  transition: background 0.18s, border-color 0.18s, transform 0.14s, box-shadow 0.18s;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.08);
   letter-spacing: 0.01em;
 }
-.link-btn:hover, .link-btn:focus {
-  background: var(--btn-hover);
-  color: var(--btn-hover-text) !important;
-  transform: translateY(-2px) scale(1.03);
+.link-btn:hover,
+.link-btn:focus {
+  background: var(--btn-hover-bg);
+  border-color: rgba(97, 216, 230, 0.50);
+  color: #fff !important;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 24px rgba(97, 216, 230, 0.18), inset 0 1px 0 rgba(255,255,255,0.10);
 }
 
+/* ── Video section wrapper ── */
+.video-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+/* Glass container housing the video */
+.video-glass-container {
+  width: 100%;
+  max-width: 380px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(190, 190, 230, 0.18);
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Poster overlay shown before play */
+.video-overlay {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 11px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.video-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 11px;
+  filter: brightness(0.70);
+  transition: filter 0.2s;
+}
+.video-overlay:hover .video-poster {
+  filter: brightness(0.60);
+}
+
+/* Decorative play icon on poster (visual only) */
+.play-overlay-icon {
+  position: absolute;
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.90);
+  background: rgba(97, 216, 230, 0.22);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 2px solid rgba(97, 216, 230, 0.45);
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: background 0.18s, transform 0.18s;
+  padding-left: 4px; /* optical centering of ▶ */
+}
+.video-overlay:hover .play-overlay-icon {
+  background: rgba(97, 216, 230, 0.35);
+  transform: scale(1.08);
+}
+
+/* Iframe wrapper, hidden until play is pressed */
+.video-frame-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 11px;
+  overflow: hidden;
+  display: none; /* toggled by JS */
+}
+.video-frame-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  border-radius: 11px;
+}
+
+/* ── Play / Stop pill button (below container) ── */
+.video-controls {
+  margin-top: 9px;
+  display: flex;
+  justify-content: center;
+}
+.video-toggle-btn {
+  background: rgba(80, 104, 143, 0.32);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(97, 216, 230, 0.30);
+  color: #fff;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 0.80rem;
+  font-weight: 600;
+  padding: 5px 22px;
+  border-radius: 20px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: background 0.18s, border-color 0.18s, transform 0.14s, box-shadow 0.18s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.20);
+}
+.video-toggle-btn:hover {
+  background: rgba(97, 216, 230, 0.24);
+  border-color: rgba(97, 216, 230, 0.52);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(97, 216, 230, 0.16);
+}
+/* Stop state — subtle warm red tint */
+.video-toggle-btn.stop-mode {
+  border-color: rgba(255, 110, 110, 0.40);
+  background: rgba(160, 50, 50, 0.30);
+}
+.video-toggle-btn.stop-mode:hover {
+  background: rgba(200, 70, 70, 0.38);
+  border-color: rgba(255, 110, 110, 0.58);
+}
+
+/* Canva credit link under video */
+.video-credit {
+  font-size: 0.80rem;
+  color: rgba(255,255,255,0.50);
+  margin-top: 7px;
+  text-align: center;
+}
+.video-credit a {
+  color: var(--blue-accent);
+  text-decoration: none;
+}
+.video-credit a:hover {
+  text-decoration: underline;
+}
+
+/* ── Newsletter – glass card ── */
 .newsletter {
   margin: 13px 0;
-  padding: 10px;
-  background: var(--indigo);
-  border-radius: 9px;
+  padding: 12px 10px;
+  background: rgba(60, 54, 120, 0.42);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(97, 216, 230, 0.13);
+  border-radius: 11px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.05);
 }
 .newsletter h3 {
   margin: 0 0 8px;
@@ -175,48 +355,65 @@ body {
 }
 .newsletter input[type="email"] {
   padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #aaa;
+  border-radius: 6px;
+  border: 1px solid rgba(97, 216, 230, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
   font-size: 1rem;
   margin-right: 7px;
   width: 62%;
 }
+.newsletter input[type="email"]::placeholder {
+  color: rgba(255, 255, 255, 0.40);
+}
 .newsletter button {
-  background: var(--blue-accent);
-  border-radius: 5px;
-  border: none;
+  background: rgba(97, 216, 230, 0.28);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(97, 216, 230, 0.36);
+  border-radius: 6px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.17s;
+  transition: background 0.17s, border-color 0.17s;
   padding: 8px 14px;
+  color: #fff !important;
 }
-.newsletter button:hover, .newsletter button:focus {
-  background: var(--btn-hover);
-  color: var(--btn-hover-text) !important;
+.newsletter button:hover,
+.newsletter button:focus {
+  background: rgba(97, 216, 230, 0.42);
+  border-color: rgba(97, 216, 230, 0.55);
 }
 
+/* ── Contact button ── */
 .contact {
-  margin: 11px 0 11px 0;
+  margin: 11px 0;
 }
 .contact-btn {
   background: var(--contact-btn-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(97, 216, 230, 0.18);
   text-decoration: none;
   padding: 11px 34px;
   border-radius: 10px;
   font-size: 12pt;
   font-family: 'Inter', Arial, sans-serif;
   font-weight: 600;
-  transition: background 0.17s, color 0.13s;
-  box-shadow: 0 2px 8px rgba(46,124,202,0.10);
-  border: none;
+  transition: background 0.17s, border-color 0.17s, transform 0.14s, box-shadow 0.18s;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.06);
   display: inline-block;
 }
-.contact-btn:hover, .contact-btn:focus {
+.contact-btn:hover,
+.contact-btn:focus {
   background: var(--contact-btn-hover);
+  border-color: rgba(97, 216, 230, 0.36);
+  transform: translateY(-2px);
   color: #fff !important;
+  box-shadow: 0 6px 24px rgba(97, 216, 230, 0.12);
 }
 
+/* ── QR section ── */
 .qr-section {
   margin: 18px 0 6px 0;
 }
@@ -225,9 +422,10 @@ body {
   display: block;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(146,168,209,0.07);
+  box-shadow: 0 2px 8px rgba(146,168,209,0.10);
 }
 
+/* ── Footer ── */
 footer {
   margin-top: 18px;
   font-size: 0.97rem;
@@ -239,6 +437,7 @@ footer a {
   text-decoration: underline;
 }
 
+/* ── Stats modal – glass ── */
 .modal {
   display: none;
   position: fixed;
@@ -248,39 +447,38 @@ footer a {
   width: 100vw;
   height: 100vh;
   overflow: auto;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 .modal-content {
-  background: #fff;
+  background: rgba(36, 26, 66, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(97, 216, 230, 0.18);
   margin: 10% auto;
   padding: 30px;
-  border-radius: 12px;
+  border-radius: 18px;
   width: 88%;
   max-width: 430px;
   position: relative;
+  color: #fff;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.40);
 }
 .close {
-  color: #aaa;
+  color: rgba(255,255,255,0.50);
   position: absolute;
   right: 17px;
   top: 15px;
   font-size: 2rem;
   cursor: pointer;
+  transition: color 0.15s;
+}
+.close:hover {
+  color: var(--blue-accent);
 }
 
-/* Ensure video embed is centered and responsive */
-.video-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-}
-.video-section > div {
-  width: 100%;
-  max-width: 420px;
-}
-
+/* ── Video placeholder (kept for safety) ── */
 .video-placeholder {
   width: 100%;
   max-width: 360px;
@@ -298,6 +496,7 @@ footer a {
   background: #362254;
 }
 
+/* ── Responsive ── */
 @media (max-width: 600px) {
   .container {
     padding: 10px 3px 6px 3px;
@@ -313,7 +512,7 @@ footer a {
   .main-title {
     font-size: 1.25rem;
   }
-  .video-section > div {
+  .video-glass-container {
     max-width: 99vw;
   }
 }
