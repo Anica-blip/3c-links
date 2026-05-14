@@ -53,19 +53,13 @@
       <!-- Glass container -->
       <div class="video-glass-container">
 
-        <!-- Poster overlay (visible before play) -->
-        <div class="video-overlay" id="videoOverlay">
-          <img src="Aurion_sm.png" alt="Aurion Video Preview" class="video-poster">
-        </div>
-
-        <!-- ── MP4 Video element (hidden until Play pressed) ── -->
-        <!-- REPLACE the src below with your Cloudflare R2 or GitHub Pages .mp4 URL -->
+        <!-- ── MP4 Video — always visible, first frame ready on load ── -->
         <video
           id="mainVideo"
-          preload="none"
+          preload="auto"
           playsinline
-          style="display:none; width:100%; border-radius:11px; background:#0a0515;">
-          <source src="REPLACE_WITH_YOUR_VIDEO_URL.mp4" type="video/mp4">
+          style="width:100%; border-radius:11px; display:block; background:#0a0515;">
+          <source src="https://files.3c-public-library.org/content/2026/videos/Aurion%203C%20Mascot%20Intro.mp4" type="video/mp4">
           Your browser does not support HTML5 video.
         </video>
 
@@ -175,7 +169,7 @@
   <script>
     (function () {
       var playing  = false;
-      var video, overlay, controls, fillBar, timeDisp, ppBtn, muteBtn, pillBtn, progressTrack;
+      var video, controls, fillBar, timeDisp, ppBtn, muteBtn, pillBtn, progressTrack;
 
       function fmtTime(s) {
         if (isNaN(s)) return '0:00';
@@ -187,9 +181,7 @@
       function resetPlayer() {
         video.pause();
         video.currentTime      = 0;
-        video.style.display    = 'none';
         controls.style.display = 'none';
-        overlay.style.display  = 'flex';
         ppBtn.textContent      = '⏸';
         fillBar.style.width    = '0%';
         timeDisp.textContent   = '0:00 / 0:00';
@@ -201,14 +193,11 @@
       window.toggleVideo = function () {
         if (!playing) {
           /* ── PLAY ── */
-          overlay.style.display  = 'none';
-          video.style.display    = 'block';
           controls.style.display = 'flex';
           video.play().catch(function () {
-            /* autoplay blocked — user will tap in-player play btn */
             ppBtn.textContent = '▶';
           });
-          ppBtn.textContent = '⏸';
+          ppBtn.textContent   = '⏸';
           pillBtn.textContent = '■\u00A0 Stop';
           pillBtn.classList.add('stop-mode');
           playing = true;
@@ -220,7 +209,6 @@
 
       document.addEventListener('DOMContentLoaded', function () {
         video         = document.getElementById('mainVideo');
-        overlay       = document.getElementById('videoOverlay');
         controls      = document.getElementById('playerControls');
         fillBar       = document.getElementById('progressFill');
         timeDisp      = document.getElementById('timeDisplay');
