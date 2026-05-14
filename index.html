@@ -56,7 +56,6 @@
         <!-- Poster overlay (visible before play) -->
         <div class="video-overlay" id="videoOverlay">
           <img src="Aurion_sm.png" alt="Aurion Video Preview" class="video-poster">
-          <div class="play-overlay-icon">▶</div>
         </div>
 
         <!-- Iframe (hidden until play pressed) -->
@@ -64,7 +63,7 @@
           <iframe
             id="canvaIframe"
             loading="lazy"
-            src=""
+            src="about:blank"
             data-src="https://www.canva.com/design/DAHHQSQ4lH0/vmV0DaWxk1ipUKytkRJUig/watch?embed"
             allowfullscreen="allowfullscreen"
             allow="fullscreen">
@@ -108,7 +107,7 @@
     <div class="section-title">Personal Growth &amp; Wellbeing:</div>
     <div class="links two-col">
       <a class="link-btn" href="https://paint-manuscript-b38.notion.site/Your-Goal-Tracker-Dashboard-1926ace1e839803a91e6cf626d0885f5?pvs=74" target="_blank" rel="noopener">Notion Goals Tracker</a>
-      <a class="link-btn" href="https://anica-blip.github.io/3C-Goal-Tracker/" target="_blank" rel="noopener">3C Goal Tracker</a>
+      <a class="link-btn" href="https://anica-blip.github.io/3C-Goal-Tracker/" target="_blank" rel="noopener">Dash Notes</a>
       <a class="link-btn" href="https://anica-blip.github.io/3c-reframe-to-rise/" target="_blank" rel="noopener">Reframe To Rise Website</a>
     </div>
 
@@ -173,19 +172,15 @@
 
       if (!videoPlaying) {
         // ── PLAY ──
-        // Load the src only once (lazy load)
-        if (!iframe.src || iframe.src === window.location.href) {
-          iframe.src = iframe.getAttribute('data-src');
-        }
+        iframe.src              = iframe.getAttribute('data-src');
         overlay.style.display   = 'none';
         frameWrap.style.display = 'block';
         btn.textContent         = '■\u00A0 Stop';
         btn.classList.add('stop-mode');
         videoPlaying = true;
       } else {
-        // ── STOP ──
-        // Reset iframe src to kill the video stream
-        iframe.src              = '';
+        // ── STOP — reset to about:blank to kill the Canva stream ──
+        iframe.src              = 'about:blank';
         overlay.style.display   = 'flex';
         frameWrap.style.display = 'none';
         btn.textContent         = '▶\u00A0 Play';
