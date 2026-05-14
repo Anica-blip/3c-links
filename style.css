@@ -62,16 +62,13 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  background: #fff;
 }
 
 /* ── Logo ── */
 .logo {
   width: 100px;
   margin-bottom: 8px;
-  border-radius: 22%;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.40), 0 1px 6px rgba(0, 0, 0, 0.25);
-  background: #fff;
+  border-radius: 50%;
   display: block;
   margin-left: auto;
   margin-right: auto;
