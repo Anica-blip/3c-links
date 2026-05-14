@@ -219,31 +219,6 @@ body {
   overflow: hidden;
 }
 
-/* Poster overlay shown before play */
-.video-overlay {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  border-radius: 11px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-.video-poster {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 11px;
-  filter: brightness(0.70);
-  transition: filter 0.2s;
-}
-.video-overlay:hover .video-poster {
-  filter: brightness(0.60);
-}
-
 /* Iframe wrapper (kept for reference, not used) */
 .video-frame-wrapper { display: none; }
 
