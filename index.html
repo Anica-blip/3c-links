@@ -58,28 +58,39 @@
           <img src="Aurion_sm.png" alt="Aurion Video Preview" class="video-poster">
         </div>
 
-        <!-- Iframe (hidden until play pressed) -->
-        <div class="video-frame-wrapper" id="videoFrameWrapper">
-          <iframe
-            id="canvaIframe"
-            loading="lazy"
-            src="about:blank"
-            data-src="https://www.canva.com/design/DAHHQSQ4lH0/vmV0DaWxk1ipUKytkRJUig/watch?embed"
-            allowfullscreen="allowfullscreen"
-            allow="fullscreen">
-          </iframe>
+        <!-- ── MP4 Video element (hidden until Play pressed) ── -->
+        <!-- REPLACE the src below with your Cloudflare R2 or GitHub Pages .mp4 URL -->
+        <video
+          id="mainVideo"
+          preload="none"
+          playsinline
+          style="display:none; width:100%; border-radius:11px; background:#0a0515;">
+          <source src="REPLACE_WITH_YOUR_VIDEO_URL.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+
+        <!-- Discreet in-video controls (hidden until Play pressed) -->
+        <div class="player-controls" id="playerControls">
+          <div class="progress-track" id="progressTrack">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="controls-row">
+            <button class="ctrl-btn" id="playPauseBtn" title="Play / Pause">⏸</button>
+            <span class="time-display" id="timeDisplay">0:00 / 0:00</span>
+            <button class="ctrl-btn mute-btn" id="muteBtn" title="Mute / Unmute">🔊</button>
+          </div>
         </div>
 
-      </div>
+      </div><!-- /video-glass-container -->
 
-      <!-- Play / Stop pill button (below container) -->
+      <!-- Pill Play / Stop button (below container) -->
       <div class="video-controls">
         <button class="video-toggle-btn" id="videoToggleBtn" onclick="toggleVideo()">▶&nbsp; Play</button>
       </div>
 
       <!-- Credit line -->
       <div class="video-credit">
-        <a href="https://www.canva.com/design/DAHHQSQ4lH0/vmV0DaWxk1ipUKytkRJUig/watch" target="_blank" rel="noopener">Aurion - GitHub Link</a> by Anica12
+        Aurion 3C Video · by Anica12
       </div>
 
     </div>
@@ -160,34 +171,94 @@
   <!-- QR library -->
   <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 
-  <!-- Play / Stop video toggle -->
+  <!-- ── Custom HTML5 Video Player (no library, no branding) ── -->
   <script>
-    var videoPlaying = false;
+    (function () {
+      var playing  = false;
+      var video, overlay, controls, fillBar, timeDisp, ppBtn, muteBtn, pillBtn, progressTrack;
 
-    function toggleVideo() {
-      var overlay     = document.getElementById('videoOverlay');
-      var frameWrap   = document.getElementById('videoFrameWrapper');
-      var iframe      = document.getElementById('canvaIframe');
-      var btn         = document.getElementById('videoToggleBtn');
-
-      if (!videoPlaying) {
-        // ── PLAY ──
-        iframe.src              = iframe.getAttribute('data-src');
-        overlay.style.display   = 'none';
-        frameWrap.style.display = 'block';
-        btn.textContent         = '■\u00A0 Stop';
-        btn.classList.add('stop-mode');
-        videoPlaying = true;
-      } else {
-        // ── STOP — reset to about:blank to kill the Canva stream ──
-        iframe.src              = 'about:blank';
-        overlay.style.display   = 'flex';
-        frameWrap.style.display = 'none';
-        btn.textContent         = '▶\u00A0 Play';
-        btn.classList.remove('stop-mode');
-        videoPlaying = false;
+      function fmtTime(s) {
+        if (isNaN(s)) return '0:00';
+        var m   = Math.floor(s / 60);
+        var sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
       }
-    }
+
+      function resetPlayer() {
+        video.pause();
+        video.currentTime      = 0;
+        video.style.display    = 'none';
+        controls.style.display = 'none';
+        overlay.style.display  = 'flex';
+        ppBtn.textContent      = '⏸';
+        fillBar.style.width    = '0%';
+        timeDisp.textContent   = '0:00 / 0:00';
+        pillBtn.textContent    = '▶\u00A0 Play';
+        pillBtn.classList.remove('stop-mode');
+        playing = false;
+      }
+
+      window.toggleVideo = function () {
+        if (!playing) {
+          /* ── PLAY ── */
+          overlay.style.display  = 'none';
+          video.style.display    = 'block';
+          controls.style.display = 'flex';
+          video.play().catch(function () {
+            /* autoplay blocked — user will tap in-player play btn */
+            ppBtn.textContent = '▶';
+          });
+          ppBtn.textContent = '⏸';
+          pillBtn.textContent = '■\u00A0 Stop';
+          pillBtn.classList.add('stop-mode');
+          playing = true;
+        } else {
+          /* ── STOP ── */
+          resetPlayer();
+        }
+      };
+
+      document.addEventListener('DOMContentLoaded', function () {
+        video         = document.getElementById('mainVideo');
+        overlay       = document.getElementById('videoOverlay');
+        controls      = document.getElementById('playerControls');
+        fillBar       = document.getElementById('progressFill');
+        timeDisp      = document.getElementById('timeDisplay');
+        ppBtn         = document.getElementById('playPauseBtn');
+        muteBtn       = document.getElementById('muteBtn');
+        pillBtn       = document.getElementById('videoToggleBtn');
+        progressTrack = document.getElementById('progressTrack');
+
+        /* In-player play/pause toggle */
+        ppBtn.addEventListener('click', function () {
+          if (video.paused) { video.play();  ppBtn.textContent = '⏸'; }
+          else              { video.pause(); ppBtn.textContent = '▶'; }
+        });
+
+        /* Mute toggle */
+        muteBtn.addEventListener('click', function () {
+          video.muted       = !video.muted;
+          muteBtn.textContent = video.muted ? '🔇' : '🔊';
+        });
+
+        /* Seek on progress track click */
+        progressTrack.addEventListener('click', function (e) {
+          if (!video.duration) return;
+          var rect        = this.getBoundingClientRect();
+          video.currentTime = ((e.clientX - rect.left) / rect.width) * video.duration;
+        });
+
+        /* Update progress bar & time display */
+        video.addEventListener('timeupdate', function () {
+          if (!video.duration) return;
+          fillBar.style.width  = (video.currentTime / video.duration * 100) + '%';
+          timeDisp.textContent = fmtTime(video.currentTime) + ' / ' + fmtTime(video.duration);
+        });
+
+        /* Auto-reset when video ends */
+        video.addEventListener('ended', resetPlayer);
+      });
+    })();
   </script>
 
   <!-- Existing app script (stats modal, QR, link tracking) -->
