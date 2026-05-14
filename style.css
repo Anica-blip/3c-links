@@ -64,19 +64,19 @@ body {
   margin-right: auto;
 }
 
-/* ── Logo ── */
+/* ── Logo — smaller, top ── */
 .logo {
-  width: 100px;
-  margin-bottom: 8px;
+  width: 72px;
+  margin-bottom: 12px;
   border-radius: 50%;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* ── Email under logo ── */
+/* ── Email under logo (hidden, kept for safety) ── */
 .email-under-logo {
-  margin-bottom: 10px;
+  display: none;
 }
 
 /* ── Main title ── */
@@ -85,27 +85,47 @@ body {
   font-size: 16pt;
   font-weight: bold;
   color: var(--blue-accent);
-  margin: 12px 0 8px 0;
-  line-height: 1.13;
+  margin: 14px 0 10px 0;
+  line-height: 1.25;
   text-align: center;
 }
 
-/* ── Subtitles ── */
-.subtitle,
-.subtitle2 {
-  font-family: 'Inter', Arial, sans-serif;
-  font-size: 14pt;
-  font-weight: bold;
-  color: var(--beige-accent);
-  margin-bottom: 8px;
-}
-.subtitle2 {
-  margin: 15px 0 8px 0;
+/* ── Tagline — handwriting ── */
+.tagline {
+  font-family: 'Caveat', cursive;
+  font-size: 18pt;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.72);
+  text-align: center;
+  margin: 4px 0 14px 0;
+  letter-spacing: 0.02em;
 }
 
-/* ── Guidebook ── */
-.guidebook-section {
+/* ── Subtitles ── */
+.subtitle {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 13pt;
+  font-weight: bold;
+  color: var(--beige-accent);
+  margin: 0 0 22px 0;
+  line-height: 1.5;
+}
+.subtitle2 {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 13pt;
+  font-weight: bold;
+  color: var(--beige-accent);
+  margin: 24px 0 20px 0;
+  line-height: 1.5;
+}
+
+/* ── Banner — moved to bottom, top breathing space ── */
+.banner {
+  margin-top: 28px;
   margin-bottom: 16px;
+}
+.guidebook-section {
+  margin-bottom: 24px;
 }
 .guidebook-link {
   font-family: 'Inter', Arial, sans-serif;
@@ -139,8 +159,8 @@ body {
   font-size: 14pt;
   font-weight: 700;
   color: var(--blue-accent);
-  margin-top: 16px;
-  margin-bottom: 12px;
+  margin-top: 24px;
+  margin-bottom: 14px;
   text-align: left;
 }
 
@@ -149,13 +169,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
 }
 .links.two-col {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
 }
 .links.two-col .link-btn {
   width: 48%;
