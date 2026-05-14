@@ -39,7 +39,9 @@ A customizable, brandable “Linktree-style” landing page for 3C Clubhouse —
 
 ## 🎨 Credits
 
-*Designed and Built by GitHub Copilot × Chef Anica · 3C Thread To Success™ Cooking Lab*
+*Originally designed & built by GitHub Copilot × Chef Anica · 3C Thread To Success™ Cooking Lab*
+
+*Styled & enhanced with ❤️ by Claude Sonnet 4.6 (Anthropic) × Chef Anica · 3C Thread To Success™ Cooking Lab 🧪👨‍🍳*
 
 ---
 
