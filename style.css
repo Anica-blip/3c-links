@@ -244,30 +244,6 @@ body {
   filter: brightness(0.60);
 }
 
-/* Decorative play icon on poster (visual only) */
-.play-overlay-icon {
-  position: absolute;
-  font-size: 1.8rem;
-  color: rgba(255, 255, 255, 0.90);
-  background: rgba(97, 216, 230, 0.22);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 2px solid rgba(97, 216, 230, 0.45);
-  border-radius: 50%;
-  width: 54px;
-  height: 54px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  transition: background 0.18s, transform 0.18s;
-  padding-left: 4px; /* optical centering of ▶ */
-}
-.video-overlay:hover .play-overlay-icon {
-  background: rgba(97, 216, 230, 0.35);
-  transform: scale(1.08);
-}
-
 /* Iframe wrapper, hidden until play is pressed */
 .video-frame-wrapper {
   width: 100%;
